@@ -20,6 +20,7 @@ var xStatusMember = "";
 
 $(document).ready(function () {
   Connect_DB();
+  dbProfile = firebase.firestore().collection("CheckProfile");
   dbRSOCMember = firebase.firestore().collection("RSOC_Member");
   CheckData();
 });
@@ -119,40 +120,17 @@ function WelcomeAll() {
 }
 
 
-/*
-  if(sCheckBottom==3) {
-    dbProfile.add({
-      lineID : sessionStorage.getItem("LineID"),
-      linename : sessionStorage.getItem("LineName"),
-      linePicture : sessionStorage.getItem("LinePicture"),
-      empPicture : sessionStorage.getItem("LinePicture"),
-      empID : stxtEmpID,
-      empName : stxtEmpName,
-      empPhone : stxtEmpPhone,
-      empRH : '',
-      empBr : '',
-      empAddress : '',
-      empAccept : '',
-      statusconfirm : 2,
-      statusedit : 1,
-      statuspass : 0,
-      lastcheckin : '',
-      memo : '',
-      EmpCheckIN : 0,
-      DateAccept : '',
-      DateRegister : dateString
-    });
-    alert("Save Data Done");
-    ConfirmAddData();
-  } 
-}
-*/
-
 
 function GotoHomePage() {
-  dbProfile.where('lineID','==',sessionStorage.getItem("LineID"))
+  dbRSOCMember.where('EmpID','==',parseFloat(sessionStorage.getItem("LineID")))
+  .limit(1)
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
+
+      sessionStorage.setItem("EmpID_Outing", doc.data().EmpID);
+      sessionStorage.setItem("EmpName_Outing", doc.data().EmpName);
+
+/*
       sessionStorage.setItem("EmpID_Outing", doc.data().empID);
       sessionStorage.setItem("EmpName_Outing", doc.data().empName);
       sessionStorage.setItem("EmpRefID", doc.id);
@@ -163,6 +141,7 @@ function GotoHomePage() {
         empPicture : sessionStorage.getItem("LinePicture"),
         linePicture : sessionStorage.getItem("LinePicture")
       });
+*/
     });
     location.href = "./home.html";
   });
