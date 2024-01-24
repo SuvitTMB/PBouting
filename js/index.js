@@ -114,14 +114,11 @@ function CheckClassRoom() {
   .get().then((snapshot)=> {
     snapshot.forEach(doc=>{
       CheckFoundRoom = 1;
-    });
-    if(CheckFoundRoom==1) { 
       CheckShortName();
-    } else {
-    //if(CheckFoundRoom==0) {
+    });
+    if(CheckFoundRoom==0) { 
       document.getElementById('loading').style.display='none';
-      document.getElementById('"NoService').style.display='block';
-    //}
+      document.getElementById('NoService').style.display='block';
     }
   });  
 }
