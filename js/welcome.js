@@ -150,7 +150,22 @@ function WelcomeAll() {
 
 
 function GotoHomePage() {
-  location.href = "https://liff.line.me/1657509542-RoEBbvpq";
+  dbProfile.where('lineID','==',sessionStorage.getItem("LineID"))
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      sessionStorage.setItem("EmpID_Outing", doc.data().empID);
+      sessionStorage.setItem("EmpName_Outing", doc.data().empName);
+      sessionStorage.setItem("EmpRefID", doc.id);
+      sessionStorage.setItem("EmpPhone", doc.data().empPhone);
+      sessionStorage.setItem("EmpAddress", doc.data().empAddress);
+      dbProfile.doc(sessionStorage.getItem("EmpRefID")).update({
+        linename : sessionStorage.getItem("LineName"),
+        empPicture : sessionStorage.getItem("LinePicture"),
+        linePicture : sessionStorage.getItem("LinePicture")
+      });
+    });
+    location.href = "./home.html";
+  });
 }
 
 
