@@ -93,6 +93,7 @@ function CheckData() {
         empPicture : sessionStorage.getItem("LinePicture"),
         linePicture : sessionStorage.getItem("LinePicture")
       });
+      alert(doc.data().empID);
       var myTimeout = setTimeout(CheckClassRoom, 2000);
     });
     if(CheckFoundData==0) {
