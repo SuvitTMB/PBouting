@@ -150,7 +150,7 @@ function WelcomeAll() {
 
 
 function GotoHomePage() {
-  location.href = "index.html";
+  location.href = "https://liff.line.me/1657509542-RoEBbvpq";
 }
 
 
