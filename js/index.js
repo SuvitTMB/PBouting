@@ -42,6 +42,7 @@ async function getUserProfile() {
   sessionStorage.setItem("LineID", profile.userId);
   sessionStorage.setItem("LineName", profile.displayName);
   sessionStorage.setItem("LinePicture", profile.pictureUrl);
+  alert(profile.userId);
   str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"></div>';
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
@@ -91,7 +92,8 @@ function CheckData() {
         empPicture : sessionStorage.getItem("LinePicture"),
         linePicture : sessionStorage.getItem("LinePicture")
       });
-      CheckClassRoom();
+      var myTimeout = setTimeout(CheckClassRoom, 2000);
+      //CheckClassRoom();
     });
     if(CheckFoundData==0) {
       document.getElementById('loading').style.display='none';
