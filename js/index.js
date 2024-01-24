@@ -83,7 +83,6 @@ function CheckData() {
       //if(doc.data().statusconfirm==1) {
       EidProfile = doc.id;
       sessionStorage.setItem("EmpID_Outing", doc.data().empID);
-      //sessionStorage.setItem("EmpID_Outing", 82504);
       sessionStorage.setItem("EmpName_Outing", doc.data().empName);
       sessionStorage.setItem("EmpRefID", doc.id);
       sessionStorage.setItem("EmpPhone", doc.data().empPhone);
@@ -94,7 +93,6 @@ function CheckData() {
         linePicture : sessionStorage.getItem("LinePicture")
       });
       CheckClassRoom();
-      //CheckRewards();
     });
     if(CheckFoundData==0) {
       document.getElementById('loading').style.display='none';
@@ -115,20 +113,11 @@ function CheckClassRoom() {
   .get().then((snapshot)=> {
     snapshot.forEach(doc=>{
       CheckFoundRoom = 1;
-      //document.getElementById('loading').style.display='none';
-      //document.getElementById('OldSurvey').style.display='block';
     });
-    /*
-    if(CheckFoundRoom==0) {
-      document.getElementById('loading').style.display='none';
-      document.getElementById('NewMember').style.display='block';
-    }
-    */
     if(CheckFoundRoom==1) { 
       CheckShortName();
     } else {
     if(CheckFoundRoom==0) {
-      //alert("not found"+sessionStorage.getItem("EmpID_Outing"));
       document.getElementById('loading').style.display='none';
       document.getElementById('NewMember').style.display='block';
     }
@@ -166,7 +155,7 @@ function CheckShortName() {
 
 
 function gotoRegister() {
-  location.href = "regis.html";
+  location.href = "./regis.html";
 }
 
 
