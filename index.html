@@ -1,0 +1,131 @@
+<!-- https://guru.sanook.com/4405/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>LINE Retail Society</title>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="assets/img/favicom.ico" rel="icon">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <!--<link href="assets/css/ttb.css" rel="stylesheet">-->
+  <link href="assets/css/css.css" rel="stylesheet">
+  <link href="assets/css/w3.css" rel="stylesheet">
+  <link href="assets/css/moon.css" rel="stylesheet">
+  <!--
+  <link href="assets/css/hand.css" rel="stylesheet">
+-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+</head>
+
+<body class="body" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;height: 90vh;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!--
+  <audio id="myaudio" controls autoplay loop style="display: none;">#e3f1f9;
+    <source src="./mp3/we-wish-you-a-merry-christmas.mp3" type="audio/mpeg">
+    <source src="./mp3/we-wish-you-a-merry-christmas.mp3">
+  </audio>
+-->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo mr-auto"><a href="index.html"><span>LINE</span> Retail Society</a></h1>
+    </div>
+  </header>
+  <div id="isLoggedIn" style="color:#fff;"></div>
+
+
+  <main id="main">
+    <div class="container" style="text-align: center;margin:90px auto 30px auto;">
+      <!--
+      <div><img src="./img/bg-header.png" style="width:200px;"></div>
+      <div><img src="./img/bg-newyear2024.png" style="width:200px; margin-top:30px;"></div>
+    -->
+      <div style="color:#0056ff; font-size: 17px; font-weight: 600;">Private Banker & Branch Manager<br>Outing & Orientation</div>
+      <div><img src="./img/pb-02.png" style="width:320px; margin-top:50px;"></div>
+      <div style="color:#000; font-size: 24px; font-weight: 600; margin-top:15px;">" <font color="#0056ff">Symphony</font> <font color="#002d63">of</font> <font color="#f68b1f">Trust</font> "</div>
+      <div style="font-size: 12px; color:#000; margin-top:20px;">26 มกราคม 2567 เวลา 18.00-22.00 น.<br>@Bangkok Marriott Hotel The Surawongse</div>
+
+      <div id="loading" style="margin-top:30px;">
+        <div><img src="./img/loading1.gif" style="width:50px;"></div>
+      </div>
+<!--
+      <div><img src="./img/siamsee.gif" style="width:150px;"></div>
+-->
+      <div id="NoService" style="display: none;margin-top:25px;">
+        <!--<div><img src="img/stop.png" style="width:150px;padding-top:20px; padding-bottom: 15px;"></div>-->
+        <div class="btn-t8" style="color:#ff0000; font-size:14px; font-weight: 600;">คุณไม่ได้รับสิทธิ์ในการเข้าถึงข้อมูลนี้<br>กรุณาบอกเราว่าคุณมีความจำเป็นอย่างไร<br>
+          <a href="mailto:suvit.cha@ttbbank.com" style="text-decoration: none;"><div class="btn-3">แจ้งเหตุผลเข้าใช้ระบบงาน</div></a>
+        </div>
+      </div>
+
+      <div id="OldSurvey" style="display: none;margin-top:25px;">
+        <div style="margin:auto;">
+          <center>
+            <div class="btn-menu" style="background-color: #0056ff;line-height: 1.2; padding:15px 45px" onclick="window.location.href='home.html';">ยินดีต้อนรับสู่<br>PB Outing & Orientation<br>คลิกเพื่อ ... เข้าสู่เว็บไซต์</div>
+          </center>
+        </div>
+        <div class="clr"></div>
+      </div>
+
+      <div id="ShowRewards" style="display: none;margin-top:25px;">
+        <div style="margin:auto;">
+          <center>
+            <div class="btn-menu" onclick="window.location.href='home.html';">คลิกเพื่อ ... เข้าสู่เว็บไซต์</div>
+          </center>
+        </div>
+        <div class="clr"></div>
+      </div>
+
+      <div id="Welcome" style="display: none;margin-top:25px;">
+        <div style="margin:auto;">
+          <center>
+            <!--
+            <div>ยินดีต้อนรับสู่</div>
+            <div style="color:#0056ff; font-size: 17px; font-weight: 600;">Private Banker & Branch Manager<br>Outing & Orientation</div>
+          -->
+            <div class="btn-menu" onclick="window.location.href='welcome.html';" style="background-color: #28a745;">ลงทะเบียน ... เพื่อเริ่มต้นใช้งาน</div>
+          </center>
+        </div>
+        <div class="clr"></div>
+      </div>
+
+      <div id="NewMember" style="display: none;margin-top:25px;">
+        <div style="font-size: 13px; color:#ff0000;"><b>คุณยังไม่เคยลงทะเบียนกับ LINE Retail Society<br>ขอให้ทำการลงทะเบียนก่อนเริ่มต้นใช้งาน</b><div>
+        <div class="btn-3" onclick="gotoRegister()">ลงทะเบียนเพื่อเริ่มต้นใช้งาน</div>
+      </div>
+
+    </div>
+  </main>
+  <div class="clr" style="height: 10px;"></div>
+
+<!--
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;margin:auto;height: 350px;">
+        <center>
+          <div class="btn-t33" style="margin-top:20px;">Welcome to</div>
+          <div>ff</div>
+          <div class="clr"></div>
+          <div id="overlay" class="btn-t22" onclick="CloseAll()" style="margin-top:10px; width:120px;">ปิดหน้าต่างนี้</div>
+        </center>
+      </div>
+    </div>
+    <div class="clr" style="height:50px;"></div>
+  </div>
+-->
+  <script src="js/index.js"></script>
+</body>
+</html>

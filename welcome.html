@@ -1,0 +1,98 @@
+<!-- https://guru.sanook.com/4405/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>LINE Retail Society</title>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="assets/img/favicom.ico" rel="icon">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link href="assets/css/style.css" rel="stylesheet">
+  <!--<link href="assets/css/ttb.css" rel="stylesheet">-->
+  <link href="assets/css/css.css" rel="stylesheet">
+  <link href="assets/css/w3.css" rel="stylesheet">
+  <link href="assets/css/form.css" rel="stylesheet">
+  <!--
+  <link href="assets/css/moon.css" rel="stylesheet">
+  <link href="assets/css/hand.css" rel="stylesheet">
+-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+</head>
+
+<body class="body" data-spy="scroll" data-target=".navbar" data-offset="60" style="height: 90vh;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!--
+  <audio id="myaudio" controls autoplay loop style="display: none;">
+    <source src="./mp3/we-wish-you-a-merry-christmas.mp3" type="audio/mpeg">
+    <source src="./mp3/we-wish-you-a-merry-christmas.mp3">
+  </audio>
+-->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo mr-auto"><a href="index.html"><span>LINE</span> Retail Society</a></h1>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <div class="container" style="text-align: center;margin:90px auto 30px auto;">
+      <div style="color:#0056ff; font-size: 17px; font-weight: 600;">Private Banker & Branch Manager<br>Outing & Orientation</div>
+
+      <div class="container" style="margin-top:20px; max-width:350px;">
+        <center>
+          <div id="MyProfile"></div>
+        </center>
+        <div class="row-font" style="margin-top:30px;">
+          <div class="input-group input-group-icon">
+            <input type="text" id="txtShortName" placeholder="ชื่อเล่นของคุณ"/>
+            <div class="input-icon"><i class="fa fa-user"></i></div>
+          </div>
+          <div class="input-group input-group-icon">
+            <input type="text" id="txtEmpPhone" placeholder="หมายเลขโทรศัพท์"/>
+            <div class="input-icon"><i class="fa fa-phone"></i></div>
+          </div>
+        </div>
+        <center>
+          <div id="SubmitApp" class="btn-t1" onclick="CheckRegister()" style="margin-top:20px;">ลงทะเบียนใช้งาน</div>
+        </center>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="clr" style="height: 10px;"></div>
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;margin:auto;min-height: 350px;">
+        <center>
+          <div class="btn-t33" style="margin-top:20px;">Welcome to</div>
+          <div style="color:#0056ff; font-size: 17px; font-weight: 600;">Private Banker & Branch Manager<br>Outing & Orientation</div>
+          <div style="margin-top:15px;"><img src="./img/welcome.gif" style="width:90%; max-width:300px;"></div>
+          <div class="clr"></div>
+          <div id="overlay" class="btn-t22" onclick="GotoHomePage()" style="width:120px; margin-bottom: 25px;">เข้าสู่เว็บไซต์</div>
+        </center>
+      </div>
+    </div>
+    <div class="clr" style="height:50px;"></div>
+  </div>
+
+
+  <script src="./js/connect.js"></script>
+  <script src="./js/welcome.js"></script>
+</body>
+</html>

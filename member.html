@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="assets/img/favicom.ico" rel="icon">
+  <title>LINE Retail Society</title>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/button.css" rel="stylesheet">
+  <link href="assets/css/css.css" rel="stylesheet">
+  <link href="assets/css/w3.css" rel="stylesheet">
+  <link href="assets/css/vdo.css" rel="stylesheet">
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <link rel='stylesheet' href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css'>
+  <link rel='stylesheet' href='https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css'>
+
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+</head>
+
+<!--<body style="background: url(./img/bg.jpg) fixed; background-size: cover;background-position: center;">-->
+<body style="background: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="navbar1" style="background: #ffd2d2;">
+    <div style="background: #003cb2; height: 75px;border-top: 1px solid #fff;">
+      <div style="max-width: 400px; margin:auto; text-align: center;">
+        <div class="iconlink" onClick="window.location='home.html';">
+          <div><img src="./img/icon-me.png" style="width:25px;"></div>
+          <div style="font-size: 11px;">ข้อมูลคุณ</div>
+        </div>
+        <div class="iconlink" onClick="window.location='agenda.html';">
+          <div><img src="./img/schedule.png" style="width:25px;"></div>
+          <div style="font-size: 11px;">กำหนดการ</div>
+        </div>
+        <div class="iconlink" onClick="window.location='teamwork.html';">
+          <div><img src="./img/icon-member.png" style="width:25px;"></div>
+          <div style="font-size: 11px;">ทีมคุณ</div>
+        </div>
+        <div class="iconlink" onClick="window.location='member.html';" style="background-color: #002d63;">
+          <div><img src="./img/icon-team.png" style="width:25px;"></div>
+          <div style="font-size: 11px;">สมาชิก</div>
+        </div>
+        <div class="iconlink" onClick="window.location='buddygame.html';">
+          <div><img src="./img/icon-buddygame.png" style="width:25px;"></div>
+          <div style="font-size: 11px;">บัดดีคุณ</div>
+        </div>
+      </div>   
+   </div>
+  </div>
+
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo mr-auto"><a href="index.html"><span>LINE</span> Retail Society</a></h1>
+      <div class="mobile-nav-toggle d-lg-none" onclick="OpenPopMenu()">
+        <i class="icofont-navigation-menu"></i>
+      </div>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <div><img src="./img/pb-03.png" style="width:100%;margin-top:45px;height: 100%;"></div>
+    <div class="container" style="max-width: 450px; ">
+      <div style="margin-top:10px;">
+        <div class="clr" style="height: 10px;"></div>
+        <div class="box-menu" onClick="window.location='agenda.html';"><img src="./img/schedule1.png" style="width:50px;padding-bottom: 4px;"><br>กำหนดการ</div>
+        <div class="box-menu" onClick="window.location='member.html';"><img src="./img/icon-teamwork.png" style="width:50px;padding-bottom: 4px;"><br>Team & Member</div>
+        <div class="box-menu" onClick="window.location='buddygame.html';"><img src="./img/icon-buddy.png" style="width:50px;padding-bottom: 4px;"><br>Buddy Game</div>
+      </div>
+      <div class="clr"></div>
+    </div>
+      <center>
+        <div class="container" style="max-width: 450px; ">
+          <div class="btn-t3" style="margin-top:30px;">สมาชิกที่เข้าร่วมกิจกรรม</div>
+          <div class="text-team" style="text-align: left;">เพื่อให้ทีมเรารู้จักกันมากยิ่งขึ้น เราได้จัดรวมข้อมูลพนักงานที่ได้เข้าร่วมกิจกรรมทั้งหมดมาไว้ที่นี่ เพื่อน ๆ พนักงานสามารถทำการค้นหาเพื่อและทำความรู้จักกันได้มากยิ่งขึ้น</div>
+          <div style="width:98%; margin:10px auto;">
+            <table id="ex-table" class="display" style="width:100%;font-size: 11px;color:#444444;">
+              <thead>
+                <tr>
+                  <th style="width:10%;">รูป</th>
+                  <th style="width:70%;">รายละเอียด</th>
+                  <th style="width:10%;">รายการ</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="clr"></div>
+        </div>
+      </center>
+      <div class="clr" style="height: 80px;"></div>
+  </main>
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;max-width: 450px; margin:30px auto; min-height:400px;">
+      <div class="w3-container" style="width:100%;padding:20px;max-width: 450px; margin:auto;">
+        <div id="DisplayProfile"></div>
+        <center>
+          <div class="btn-t1" onclick="CloseAll()" style="margin-top:25px;">ปิดหน้าต่างนี้</div>
+        </center>
+      </div>
+    </div>
+    <div class="clr" style="height:50px;"></div>
+
+
+  <div id="menu" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4 bg-menu">
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;padding:0px;margin-bottom: 20px;background-color: #00ae3d;">
+        <div id="MenuSociety"></div>
+      </div>
+    </div>
+    <div class="clr" style="height:40px;"></div>
+  </div>
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+
+
+<script src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js'></script>
+
+<!--
+
+<script src='https://code.jquery.com/jquery-1.12.3.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'></script>
+<script src='https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js'></script>
+<script src='https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js'></script>
+
+-->
+
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+
+  <script src="./assets/js/main.js"></script>
+  <script src="./js/connect.js"></script>
+  <script src="./js/menu.js"></script>
+  <script src="./js/member.js"></script>
+
+</body>
+</html>
