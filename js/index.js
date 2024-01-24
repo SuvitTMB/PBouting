@@ -118,10 +118,10 @@ function CheckClassRoom() {
     if(CheckFoundRoom==1) { 
       CheckShortName();
     } else {
-    if(CheckFoundRoom==0) {
+    //if(CheckFoundRoom==0) {
       document.getElementById('loading').style.display='none';
-      document.getElementById('NewMember').style.display='block';
-    }
+      document.getElementById('"NoService').style.display='block';
+    //}
     }
   });  
 }
