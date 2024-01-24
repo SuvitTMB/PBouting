@@ -106,6 +106,7 @@ function CheckData() {
 
 
 function CheckClassRoom() {
+  alert(sessionStorage.getI"Session = "+tem("EmpID_Outing"));
   //alert(parseInt(sessionStorage.getItem("EmpID_Outing")));
   CheckFoundRoom = 0;
   dbBootCamp.where('EmpType','==',sGroup)
