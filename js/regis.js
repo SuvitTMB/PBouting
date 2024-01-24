@@ -16,9 +16,7 @@ $(document).ready(function () {
   $("#MyProfile").html(str);  
   Connect_DB();
   dbProfile = firebase.firestore().collection("CheckProfile");
-  //dbBootCamp = firebase.firestore().collection("BootMember");
-  //dbGiftRewards = firebase.firestore().collection("GiftNewYear2567");
-  //dbCardNewyear = firebase.firestore().collection("NewyearCard2567");
+  dbRSOCMember = firebase.firestore().collection("RSOC_Member");
   CheckData();
 });
 
@@ -75,7 +73,7 @@ function CheckRegister() {
       DateAccept : '',
       DateRegister : dateString
     });
-    alert("Save Data Done");
+    //alert("Save Data Done");
     ConfirmAddData();
   } 
 
@@ -83,7 +81,16 @@ function CheckRegister() {
 
 
 function ConfirmAddData() {
-  location.href = "https://liff.line.me/1657509542-RoEBbvpq";
+  dbRSOCMember.where('EmpID','==',parseFloat(stxtEmpID))
+  .limit(1)
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      sessionStorage.setItem("EmpID_Outing", doc.data().EmpID);
+      sessionStorage.setItem("EmpName_Outing", doc.data().EmpName);
+    });
+    location.href = "./home.html";
+  });
+  //location.href = "index.html";
 }
 
 
