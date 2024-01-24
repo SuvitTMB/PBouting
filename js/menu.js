@@ -18,7 +18,7 @@ function OpenPopMenu() {
   xLine += '<div class="menu-box-text1" style="color:#000000;">กำหนดการ</div></div>';
   xLine += '<div class="menu-box1" onclick="window.location.href=\'teamwork.html\';">';
   xLine += '<div class="menu-box-img1"><img src="./img/icon-member.png" style="width:32px;"></div>';
-  xLine += '<div class="menu-box-text1" style="color:#000000;">ลุ้นโชค</div></div>';
+  xLine += '<div class="menu-box-text1" style="color:#000000;">ทีมคุณ</div></div>';
   xLine += '<div class="clr"></div>';
 
   xLine += '<div class="menu-box1" onclick="window.location.href=\'member.html\';">';
