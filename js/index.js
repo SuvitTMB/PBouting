@@ -93,7 +93,7 @@ function CheckData() {
         empPicture : sessionStorage.getItem("LinePicture"),
         linePicture : sessionStorage.getItem("LinePicture")
       });
-      alert(doc.data().empID);
+      //alert(doc.data().empID);
       var myTimeout = setTimeout(CheckClassRoom, 2000);
     });
     if(CheckFoundData==0) {
@@ -106,7 +106,7 @@ function CheckData() {
 
 
 function CheckClassRoom() {
-  alert(sessionStorage.getI"Session = "+tem("EmpID_Outing"));
+  //alert(sessionStorage.getI"Session = "+tem("EmpID_Outing"));
   //alert(parseInt(sessionStorage.getItem("EmpID_Outing")));
   CheckFoundRoom = 0;
   dbBootCamp.where('EmpType','==',sGroup)
