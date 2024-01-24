@@ -97,7 +97,7 @@ function CheckData() {
       var myTimeout = setTimeout(CheckClassRoom, 2000);
     });
     if(CheckFoundData==0) {
-      alert("Not Found");
+      //alert("Not Found");
       document.getElementById('loading').style.display='none';
       document.getElementById('NewMember').style.display='block';
     }
