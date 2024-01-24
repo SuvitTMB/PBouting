@@ -77,7 +77,7 @@ function Connect_DB() {
 
 
 function CheckData() {
-  alert(xEmp);
+  //alert(xEmp);
   dbProfile.where('lineID','==',sessionStorage.getItem("LineID"))
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
