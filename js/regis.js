@@ -95,7 +95,6 @@ function ConfirmAddData() {
         LineID : sessionStorage.getItem("LineID"),
         LineName : sessionStorage.getItem("LineName"),
         LinePicture : sessionStorage.getItem("LinePicture"),
-        ShortName : stxtShortName,
         ShortName : stxtNickName,
         EmpPhone : stxtEmpPhone,
         TimeStampReg : dateString,
