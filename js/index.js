@@ -35,14 +35,14 @@ async function main() {
   }
 }
 
-
+var xEmp  = "";
 async function getUserProfile() {
   var str = "";
   const profile = await liff.getProfile();
   sessionStorage.setItem("LineID", profile.userId);
   sessionStorage.setItem("LineName", profile.displayName);
   sessionStorage.setItem("LinePicture", profile.pictureUrl);
-  alert(profile.userId);
+  xEmp = profile.userId;
   str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"></div>';
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
@@ -77,6 +77,7 @@ function Connect_DB() {
 
 
 function CheckData() {
+  alert(xEmp);
   dbProfile.where('lineID','==',sessionStorage.getItem("LineID"))
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
@@ -93,9 +94,9 @@ function CheckData() {
         linePicture : sessionStorage.getItem("LinePicture")
       });
       var myTimeout = setTimeout(CheckClassRoom, 2000);
-      //CheckClassRoom();
     });
     if(CheckFoundData==0) {
+      alert("Not Found");
       document.getElementById('loading').style.display='none';
       document.getElementById('NewMember').style.display='block';
     }
