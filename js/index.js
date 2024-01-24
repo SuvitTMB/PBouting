@@ -80,7 +80,6 @@ function CheckData() {
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       CheckFoundData = 1;
-      //if(doc.data().statusconfirm==1) {
       EidProfile = doc.id;
       sessionStorage.setItem("EmpID_Outing", doc.data().empID);
       sessionStorage.setItem("EmpName_Outing", doc.data().empName);
@@ -97,7 +96,6 @@ function CheckData() {
     if(CheckFoundData==0) {
       document.getElementById('loading').style.display='none';
       document.getElementById('NewMember').style.display='block';
-      //document.getElementById('NoService').style.display='none';
     }
   });
 }
@@ -146,8 +144,6 @@ function CheckShortName() {
     if(CheckList==0) {
       document.getElementById('loading').style.display='none';
       document.getElementById('NoService').style.display='block';
-      //alert("found"+sessionStorage.getItem("EmpID_Outing"));
-      //alert("Not Found");
     }
   });  
 }
@@ -158,27 +154,6 @@ function gotoRegister() {
   location.href = "./regis.html";
 }
 
-
-/*
-var gcheck = 0;
-function CheckRewards() {
-  //console.log(sessionStorage.getItem("EmpID_Outing"));
-  dbGiftRewards.where('EmpID','==',sessionStorage.getItem("EmpID_Outing"))
-  .get().then((snapshot)=> {
-    snapshot.forEach(doc=> {
-      gcheck = 1;
-      document.getElementById('loading').style.display='none';
-      document.getElementById('OldSurvey').style.display='none';
-      document.getElementById('ShowRewards').style.display='block';
-    });
-    if(gcheck==0) {
-      document.getElementById('loading').style.display='none';
-      document.getElementById('OldSurvey').style.display='block';
-      document.getElementById('ShowRewards').style.display='none';
-    }
-  });
-}
-*/
 
 function NewDate() {
   var today = new Date();

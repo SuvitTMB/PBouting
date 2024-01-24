@@ -44,14 +44,16 @@ function CheckRegister() {
   var sCheckBottom= 0;
   stxtEmpID = document.getElementById("txtEmpID").value;
   stxtEmpName = document.getElementById("txtEmpName").value;
+  stxtNickName = document.getElementById("txtNickName").value;
   stxtEmpPhone = document.getElementById("txtEmpPhone").value;
   if(stxtEmpID !== null && stxtEmpID !== '') { sCheckBottom = sCheckBottom+1; } else { str += '- กรุณากรอกรหัสพนักงาน\n'; }
   if(stxtEmpName !== null && stxtEmpName !== '') { sCheckBottom = sCheckBottom+1; } else { str += '- กรุณากรอกชื่อ-นามสกุลของท่าน\n'; }
+  if(stxtNickName !== null && stxtNickName !== '') { sCheckBottom = sCheckBottom+1; } else { str += '- กรุณาเล่นของท่าน\n'; }
   if(stxtEmpPhone !== null && stxtEmpPhone !== '') { sCheckBottom = sCheckBottom+1; } else { str += '- กรุณากรอกหมายเลขโทรศัพท์ของท่าน\n'; }
   if(sCheckBottom!=3) { 
     alert("คุณยังกรอกข้อมูลไม่ครบถ้วน\n\n"+str);
   }
-  if(sCheckBottom==3) {
+  if(sCheckBottom==4) {
     dbProfile.add({
       lineID : sessionStorage.getItem("LineID"),
       linename : sessionStorage.getItem("LineName"),
@@ -60,6 +62,7 @@ function CheckRegister() {
       empID : stxtEmpID,
       empName : stxtEmpName,
       empPhone : stxtEmpPhone,
+      nickname : stxtNickName,
       empRH : '',
       empBr : '',
       empAddress : '',
@@ -73,8 +76,10 @@ function CheckRegister() {
       DateAccept : '',
       DateRegister : dateString
     });
+    var myTimeout = setTimeout(ConfirmAddData, 2000);
+
     //alert("Save Data Done");
-    ConfirmAddData();
+    //ConfirmAddData();
   } 
 
 }
@@ -85,9 +90,21 @@ function ConfirmAddData() {
   .limit(1)
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
+      var Vid = doc.id;
+      dbRSOCMember.doc(Vid).update({
+        LineID : sessionStorage.getItem("LineID"),
+        LineName : sessionStorage.getItem("LineName"),
+        LinePicture : sessionStorage.getItem("LinePicture"),
+        ShortName : stxtShortName,
+        ShortName : stxtNickName,
+        EmpPhone : stxtEmpPhone,
+        TimeStampReg : dateString,
+        StatusRegister : 1
+      });
       sessionStorage.setItem("EmpID_Outing", doc.data().EmpID);
       sessionStorage.setItem("EmpName_Outing", doc.data().EmpName);
     });
+    alert("done");
     location.href = "./home.html";
   });
   //location.href = "index.html";
