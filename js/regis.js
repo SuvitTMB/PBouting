@@ -9,8 +9,6 @@ var ShortDate = "";
 
 $(document).ready(function () {
   var str = "";
-  //if(sessionStorage.getItem("EmpID_Outing")==null) { location.href = "index.html"; }
-
   str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile"></div>';
   str += '<div class="NameLine" style="margin-top:8px;">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
@@ -30,6 +28,7 @@ function CheckData() {
         EidProfile = doc.id;
         document.getElementById("txtEmpID").value = doc.data().empID;
         document.getElementById("txtEmpName").value = doc.data().empName;
+        document.getElementById("txtNickName").value = doc.data().nickname;
         document.getElementById("txtEmpPhone").value = doc.data().empPhone;
     });
   });
@@ -50,10 +49,13 @@ function CheckRegister() {
   if(stxtEmpName !== null && stxtEmpName !== '') { sCheckBottom = sCheckBottom+1; } else { str += '- กรุณากรอกชื่อ-นามสกุลของท่าน\n'; }
   if(stxtNickName !== null && stxtNickName !== '') { sCheckBottom = sCheckBottom+1; } else { str += '- กรุณาเล่นของท่าน\n'; }
   if(stxtEmpPhone !== null && stxtEmpPhone !== '') { sCheckBottom = sCheckBottom+1; } else { str += '- กรุณากรอกหมายเลขโทรศัพท์ของท่าน\n'; }
-  if(sCheckBottom!=3) { 
+  if(sCheckBottom!=4) { 
     alert("คุณยังกรอกข้อมูลไม่ครบถ้วน\n\n"+str);
+  } else {
+    document.getElementById('SubmitApp').style.display='none';
   }
   if(sCheckBottom==4) {
+    document.getElementById('id01').style.display='block';
     dbProfile.add({
       lineID : sessionStorage.getItem("LineID"),
       linename : sessionStorage.getItem("LineName"),
@@ -77,9 +79,6 @@ function CheckRegister() {
       DateRegister : dateString
     });
     var myTimeout = setTimeout(ConfirmAddData, 2000);
-
-    //alert("Save Data Done");
-    //ConfirmAddData();
   } 
 
 }
@@ -103,10 +102,21 @@ function ConfirmAddData() {
       sessionStorage.setItem("EmpID_Outing", doc.data().EmpID);
       sessionStorage.setItem("EmpName_Outing", doc.data().EmpName);
     });
-    alert("done");
+    //location.href = "./home.html";
+  });
+}
+
+
+function GotoHomePage() {
+  dbRSOCMember.where('EmpID','==',parseFloat(stxtEmpID))
+  .limit(1)
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      sessionStorage.setItem("EmpID_Outing", doc.data().EmpID);
+      sessionStorage.setItem("EmpName_Outing", doc.data().EmpName);
+    });
     location.href = "./home.html";
   });
-  //location.href = "index.html";
 }
 
 
@@ -140,11 +150,7 @@ function NewDate() {
   minutes = checkZero(minutes);
   seconds = checkZero(seconds);
   dateString = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm;
-
   xdateCheck = months[monthEN] + " " + day + ", " + year + " " + hour + ":" + minutes + ":" + seconds ;
-  //var GetWatingTime = "april 25, 2022 12:30:00";
-
-
 }
 
 

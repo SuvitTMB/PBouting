@@ -27,9 +27,8 @@ function LoadEmpIDArray() {
   dbRSOCMember
   .get().then((snapshot)=> {
   snapshot.forEach(doc=>{
-      ArrEmpID.push({ EmpID: doc.data().EmpID, EmpName: doc.data().EmpName, LinePicture: doc.data().LinePicture, EmpPosition: doc.data().EmpPosition, EmpBranch: doc.data().EmpBranch, EmpBU: doc.data().EmpBU, EmpZone: doc.data().EmpZone, EmpRH: doc.data().EmpRH, EmpPhone: doc.data().EmpPhone });
+      ArrEmpID.push({ EmpID: doc.data().EmpID, EmpName: doc.data().EmpName, ShortName: doc.data().ShortName, EmpLinePicture: doc.data().LinePicture, EmpPosition: doc.data().EmpPosition, EmpBranch: doc.data().EmpBranch, EmpBU: doc.data().EmpBU, EmpZone: doc.data().EmpZone, EmpRH: doc.data().EmpRH, EmpPhone: doc.data().EmpPhone });
     });
-    //console.log(ArrEmpID);
   });  
 }
 
@@ -51,7 +50,31 @@ function loadUser() {
           } else {
             const results = ArrEmpID.filter(obj => {return obj.EmpID === doc.data().IDBuddy;});
             str1 += '<div class="clr"></div><div style="margin-top:20px;"><img src="'+ results[0].LinePicture +'" class="profile-team1" onerror="javascript:imgError(this)"></div>';
-            str1 += '<div class="NameLine" style="margin-top:14px;"><b>'+ results[0].EmpName +'</b><br>'+ results[0].EmpPosition +'<br>'+ results[0].EmpBranch +'<br>'+ results[0].EmpZone +'<br>'+ results[0].EmpRH +'<br>'+ results[0].EmpBU +'<br>โทร. '+ results[0].EmpPhone +'</div>';
+            str1 += '<div class="NameLine" style="margin-top:14px;"><b>'+ results[0].EmpName +' <font color="#f68b1f">('+ results[0].ShortName +')</font></b>';
+
+            //str1 += '<div class="NameLine" style="margin-top:14px;"><b>'+ results[0].EmpName +'</b>';
+            if(results[0].EmpPosition!= "") {
+              str1 += '<br>'+ results[0].EmpPosition 
+            }
+            if(results[0].EmpBranch!= "") {
+              str1 += '<br>'+ results[0].EmpBranch 
+            }
+            if(results[0].EmpZone!= "") {
+              str1 += '<br>'+ results[0].EmpZone
+            }
+            if(results[0].EmpRH!= "") {
+              str1 += '<br>'+ results[0].EmpRH
+            }
+            if(results[0].EmpBU!= "") {
+              str1 += '<br>'+ results[0].EmpBU
+            }
+            if(results[0].EmpPhone!= "") {
+              str1 += '<br>โทร. <b>'+ results[0].EmpPhone +'</b>'
+            }
+            str1 += '</div>';
+
+
+            //str1 += '<div class="NameLine" style="margin-top:14px;"><b>'+ results[0].EmpName +'</b><br>'+ results[0].EmpPosition +'<br>'+ results[0].EmpBranch +'<br>'+ results[0].EmpZone +'<br>'+ results[0].EmpRH +'<br>'+ results[0].EmpBU +'<br>โทร. '+ results[0].EmpPhone +'</div>';
           }
         str1 +='<div style="padding-top:20px;"></div>';
       } else {

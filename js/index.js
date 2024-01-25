@@ -1,13 +1,13 @@
 var CheckFound = 0;
-var sGroup = "RDGkickoff2024#1";
+var sGroup = "PBouting#1";
 var CheckFoundData = 0;
 var CheckFoundRoom  = 0;
 
 
 $(document).ready(function () {
+/*
   sessionStorage.clear(); 
 
-/*
   var str = "";
   var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
   var sLineName = "Website";
@@ -19,8 +19,7 @@ $(document).ready(function () {
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
   Connect_DB();
-*/   
-
+*/
    main();
 });
 
@@ -106,7 +105,7 @@ function CheckData() {
 
 
 function CheckClassRoom() {
-  //alert(sessionStorage.getI"Session = "+tem("EmpID_Outing"));
+  //alert("Session="+sessionStorage.getItem("EmpID_Outing"));
   //alert(parseInt(sessionStorage.getItem("EmpID_Outing")));
   CheckFoundRoom = 0;
   dbBootCamp.where('EmpType','==',sGroup)
